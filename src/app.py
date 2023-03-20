@@ -1,22 +1,17 @@
-# Run this app with `python app.py` and
-# visit http://127.0.0.1:8050/ in your web browser.
-
 from dash import Dash, html, dcc, Input, Output
 import dash_bootstrap_components as dbc
 import plotly.express as px
 import plotly.graph_objs as go
 import pandas as pd
 
-app = Dash(
-    external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.FONT_AWESOME]
-)
+app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.FONT_AWESOME])
 
 ########## reading the data ###########
 df = pd.read_csv("https://raw.githubusercontent.com/Yurui-Feng/Student_Living_Guide_Dash/main/data/processed/processed_data.csv")
 indices = df.columns[2:8].tolist()
 countries = df["Country"].unique().tolist()
 continent = df["Continent"].unique().tolist()
-# the style arguments for the sidebar. We use position:fixed and a fixed width
+
 SIDEBAR_STYLE = {
     "position": "fixed",
     "top": 0,
@@ -27,8 +22,6 @@ SIDEBAR_STYLE = {
     "background-color": "#f8f9fa",
 }
 
-# the styles for the main content position it to the right of the sidebar and
-# add some padding.
 CONTENT_STYLE = {
     "margin-left": "18rem",
     "margin-right": "2rem",
@@ -76,7 +69,6 @@ app.layout = html.Div([dcc.Location(id="url"), sidebar, content])
               Input("select_continent", "value"))
 
 def render_page_content(pathname,index, country, continent):
-    #countryname = country
     lat = df[df["Country"] == country]["latitude"].values[0]
     long  = df[df["Country"] == country]["longitude"].values[0]
     val = df[df["Country"] == country][index].values[0]
@@ -148,10 +140,6 @@ def render_page_content(pathname,index, country, continent):
             dcc.Graph(figure=hist)
         ])
     
-
-    #fig.update_geos(fitbounds="locations", visible=False)
-    #fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-
     return html.Div(
         [
             html.H1("404: Not found", className="text-danger"),
