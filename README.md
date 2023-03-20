@@ -26,7 +26,7 @@ Map: This page displays a world map with a color-coded representation of the sel
 
 Histogram: This page shows a histogram of the selected index for the countries in the chosen continent(s). The selected country's value is marked with a red line and annotation. The histogram allows you to visualize the distribution of the index values and compare the chosen country to others in the region.
 
-With this interactive dashboard, users can easily explore the cost of living for students across different countries and compare various indices to make informed decisions about studying abroad.
+With this interactive dashboard, you can easily explore the cost of living for students across different countries and compare various indices to make informed decisions about studying or living abroad.
 
 # Developing the App Locally
 To develop the Student Living Guide app locally, follow these steps:
