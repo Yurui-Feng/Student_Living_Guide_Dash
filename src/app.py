@@ -162,4 +162,4 @@ def render_page_content(pathname,index, country, continent):
     )
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server()
