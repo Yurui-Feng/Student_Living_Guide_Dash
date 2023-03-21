@@ -103,7 +103,7 @@ def render_page_content(pathname,index, country, continent):
     ))
 
     hist = px.histogram(
-        filtered_df, nbins=20,
+        filtered_df, nbins=30,
         x=index)
     hist.update_traces(marker=dict(line=dict(width=1, color="white")))
     hist.add_shape(
